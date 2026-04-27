@@ -1,49 +1,74 @@
-# LOGZ_InfoCommands
+# LOGZ InfoCommands
 
-Private binary info commands plugin for **Counter-Strike 2** powered by **CounterStrikeSharp**.
+LOGZ InfoCommands is a CounterStrikeSharp / CS2 plugin that adds public information commands for LOGZ Romania servers.
 
-This plugin provides simple player info commands such as:
+## Current Version
 
-- `!forum`
-- `!fondator`
-- `!fondatorul`
-- `!admins`
-- `!ts`
-- `!discord`
-- `!admin`
+```txt
+1.2.0
+```
 
-## Features
+## Commands
 
-- Forum command
-- Founder command
-- Online admins command
-- TeamSpeak command
-- Discord command
-- Admin request command
-- Chat / Center / Both output modes
-- Configurable messages
-- Version check support
+```txt
+!forum
+!fondator
+!fondatorul
+!admins
+!ts
+!discord
+!admin
+css_logzinfo_version
+css_logzinfo_info
+css_logzinfo_license
+```
 
-## Release Type
+## New in v1.2.0
 
-This repository provides **binary releases only**.
+- added LOGZ proprietary license header
+- added `LICENSE.md`
+- added `version.txt`
+- added `WebsiteUrl`
+- added `GithubUrl`
+- added `VersionUrl`
+- added `LicenseName`
+- added version/info/license commands
+- removed `PlayerConnectedState.PlayerConnected` check for better API compatibility
 
-- ✅ Compiled `.dll` release files
-- ❌ Source code is not included
+## version.txt
 
-## Installation
+Recommended format:
 
-1. Download the latest release ZIP
-2. Extract the archive
-3. Upload `LOGZ_InfoCommands.dll` to your CounterStrikeSharp plugins folder
-4. Restart or reload the plugin
+```txt
+1.2.0
+https://github.com/MartyCSGO/LOGZ_InfoCommands
+```
 
-## Version Check
+Config raw URL:
 
-The plugin supports:
-- `Plugin is up to date`
-- `Plugin is outdated`
+```json
+"VersionUrl": "https://raw.githubusercontent.com/MartyCSGO/LOGZ_InfoCommands/main/version.txt"
+```
 
-## Author
+If your GitHub branch is `master`, use:
 
-**Marty**
+```json
+"VersionUrl": "https://raw.githubusercontent.com/MartyCSGO/LOGZ_InfoCommands/master/version.txt"
+```
+
+## Important
+
+`css_admins` may conflict with `LOGZ_Admin` if both plugins register the same command.
+
+Recommended setup:
+
+- keep `!admins` in `LOGZ_Admin`, or
+- keep `!admins` in `LOGZ_InfoCommands`, but remove/disable the duplicate from `LOGZ_Admin`
+
+Do not keep duplicate command registration if your server shows command conflicts.
+
+## License
+
+This project is licensed under the LOGZ Romania Proprietary License.
+
+See `LICENSE.md`.
